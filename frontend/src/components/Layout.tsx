@@ -9,10 +9,10 @@ export default function Layout() {
       <nav className="bg-white border-b border-gray-200 px-6 py-0 flex items-center justify-between sticky top-0 z-10 shadow-sm">
         <div className="flex items-center gap-8">
           <div className="flex items-center gap-2 py-4">
-            <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center">
-              <span className="text-white text-xs font-bold">A</span>
+            <div className="w-7 h-7 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center shadow-sm">
+              <span className="text-white text-xs font-black">A</span>
             </div>
-            <span className="font-semibold text-gray-900">ACME Salary</span>
+            <span className="font-bold text-gray-900">ACME Salary</span>
           </div>
           <div className="flex items-center gap-1">
             {[
