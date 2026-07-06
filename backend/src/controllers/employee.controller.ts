@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { employeeService } from '../services/employee.service';
+import { ValidationError } from '../errors';
 
 export const employeeController = {
   async getAll(req: Request, res: Response) {
@@ -44,5 +45,14 @@ export const employeeController = {
     const id = req.params['id'] as string;
     await employeeService.deactivateEmployee(id);
     res.status(204).send();
+  },
+
+  async bulkImport(req: Request, res: Response) {
+    const { csv } = req.body;
+    if (typeof csv !== 'string' || csv.trim() === '') {
+      throw new ValidationError('Request body must include a non-empty "csv" string');
+    }
+    const result = await employeeService.bulkImport(csv);
+    res.status(result.failed > 0 ? 207 : 201).json(result);
   }
 };

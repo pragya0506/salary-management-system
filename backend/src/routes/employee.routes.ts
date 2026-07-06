@@ -7,6 +7,7 @@ const router = Router();
 router.use(authenticate);
 
 router.get('/', employeeController.getAll);
+router.post('/import', employeeController.bulkImport);
 router.get('/:id', employeeController.getById);
 router.post('/', employeeController.create);
 router.put('/:id', employeeController.update);
