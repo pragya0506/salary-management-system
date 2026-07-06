@@ -29,7 +29,8 @@ export const employeeApi = {
   getById: (id: string) => api.get(`/employees/${id}`),
   create: (data: any) => api.post('/employees', data),
   update: (id: string, data: any) => api.put(`/employees/${id}`, data),
-  deactivate: (id: string) => api.delete(`/employees/${id}`)
+  deactivate: (id: string) => api.delete(`/employees/${id}`),
+  bulkImport: (csv: string) => api.post('/employees/import', { csv })
 }
 
 export const analyticsApi = {
