@@ -24,7 +24,8 @@ export const employeeController = {
   },
 
   async getById(req: Request, res: Response) {
-    const employee = await employeeService.getEmployeeById(req.params.id);
+    const id = req.params['id'] as string;
+    const employee = await employeeService.getEmployeeById(id);
     res.json(employee);
   },
 
@@ -34,12 +35,14 @@ export const employeeController = {
   },
 
   async update(req: Request, res: Response) {
-    const employee = await employeeService.updateEmployee(req.params.id, req.body);
+    const id = req.params['id'] as string;
+    const employee = await employeeService.updateEmployee(id, req.body);
     res.json(employee);
   },
 
   async deactivate(req: Request, res: Response) {
-    await employeeService.deactivateEmployee(req.params.id);
+    const id = req.params['id'] as string;
+    await employeeService.deactivateEmployee(id);
     res.status(204).send();
   }
 };
