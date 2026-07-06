@@ -1,0 +1,6 @@
+firstName,lastName,email,department,country,currency,baseSalary,effectiveDate
+Maya,Fernandez,maya.fernandez@acme.com,Engineering,US,USD,142000,2024-03-01
+Liam,O'Brien,liam.obrien@acme.com,Sales,UK,GBP,68000,2024-05-15
+Priya,Nair,priya.nair@acme.com,Finance,India,INR,2100000,2023-11-20
+Noah,Schmidt,noah.schmidt@acme.com,Operations,Germany,EUR,74000,2024-01-10
+Chloe,Tremblay,chloe.tremblay@acme.com,Marketing,Canada,CAD,88000,2024-02-28
