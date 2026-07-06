@@ -13,7 +13,6 @@ export default function Login() {
     e.preventDefault()
     setLoading(true)
     setError('')
-
     try {
       const res = await authApi.login(email, password)
       login(res.data.token)
@@ -25,50 +24,55 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow w-full max-w-md">
-        <h1 className="text-2xl font-bold text-gray-800 mb-2">
-          ACME Salary Manager
-        </h1>
-        <p className="text-gray-500 mb-6">Sign in to your account</p>
+    <div className="min-h-screen bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center p-4">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-8">
+        <div className="mb-8">
+          <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-4">
+            <span className="text-white text-xl font-bold">A</span>
+          </div>
+          <h1 className="text-2xl font-bold text-gray-900">Welcome back</h1>
+          <p className="text-gray-500 mt-1">Sign in to ACME Salary Manager</p>
+        </div>
 
         {error && (
-          <div className="bg-red-50 text-red-600 p-3 rounded mb-4 text-sm">
+          <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg mb-6 text-sm">
             {error}
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Email
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              Email address
             </label>
             <input
               type="email"
               value={email}
               onChange={e => setEmail(e.target.value)}
-              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="hr@acme.com"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
               Password
             </label>
             <input
               type="password"
               value={password}
               onChange={e => setPassword(e.target.value)}
-              className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="••••••••"
+              className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               required
             />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 disabled:opacity-50"
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? 'Signing in...' : 'Sign In'}
+            {loading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
       </div>

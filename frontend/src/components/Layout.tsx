@@ -6,36 +6,43 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white border-b px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-6">
-          <span className="font-bold text-gray-800 text-lg">
-            ACME Salary Manager
-          </span>
-          <NavLink
-            to="/dashboard"
-            className={({ isActive }) =>
-              `text-sm font-medium ${isActive ? 'text-blue-600' : 'text-gray-500 hover:text-gray-800'}`
-            }
-          >
-            Dashboard
-          </NavLink>
-          <NavLink
-            to="/employees"
-            className={({ isActive }) =>
-              `text-sm font-medium ${isActive ? 'text-blue-600' : 'text-gray-500 hover:text-gray-800'}`
-            }
-          >
-            Employees
-          </NavLink>
+      <nav className="bg-white border-b border-gray-200 px-6 py-0 flex items-center justify-between sticky top-0 z-10 shadow-sm">
+        <div className="flex items-center gap-8">
+          <div className="flex items-center gap-2 py-4">
+            <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center">
+              <span className="text-white text-xs font-bold">A</span>
+            </div>
+            <span className="font-semibold text-gray-900">ACME Salary</span>
+          </div>
+          <div className="flex items-center gap-1">
+            {[
+              { to: '/dashboard', label: 'Dashboard' },
+              { to: '/employees', label: 'Employees' }
+            ].map(({ to, label }) => (
+              <NavLink
+                key={to}
+                to={to}
+                className={({ isActive }) =>
+                  `px-4 py-5 text-sm font-medium border-b-2 transition-colors ${
+                    isActive
+                      ? 'border-blue-600 text-blue-600'
+                      : 'border-transparent text-gray-500 hover:text-gray-800'
+                  }`
+                }
+              >
+                {label}
+              </NavLink>
+            ))}
+          </div>
         </div>
         <button
           onClick={logout}
-          className="text-sm text-gray-500 hover:text-gray-800"
+          className="text-sm text-gray-500 hover:text-gray-800 px-3 py-1.5 rounded-lg hover:bg-gray-100 transition-colors"
         >
           Logout
         </button>
       </nav>
-      <main className="p-6">
+      <main className="max-w-7xl mx-auto p-6">
         <Outlet />
       </main>
     </div>
