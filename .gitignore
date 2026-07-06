@@ -1,0 +1,22 @@
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment
+.env
+.env.local
+
+# Databases
+*.db
+*.db-journal
+
+# Logs
+*.log
